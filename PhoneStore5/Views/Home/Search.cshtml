@@ -1,0 +1,87 @@
+﻿@model PhoneProduct
+@{
+    ViewData["Title"] = "Search";
+}
+
+<style>
+  .tbl { border-collapse: collapse; width:300px; }
+  .tbl th, .tbl td { padding: 5px; border: solid 1px #777; }
+  .tbl th { background-color: lightblue; }
+  .tbl-separate { border-collapse: separate; border-spacing: 5px;}
+</style>
+<html>
+<head>
+    <style>
+.button {
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button3 {
+  border: none;
+  color: white;
+  padding: 7px 9px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button2 {background-color: #008CBA;} /* Blue */
+.button4 {background-color: #ff0000;} /* Red */
+.button5 {background-color: #f7be33;} /* yellow */
+</style>
+</head>
+<body>
+
+
+
+</body>
+</html>
+
+<table id="mytable" class="tbl">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>NameChipset</th>
+        <th>Camera</th>
+        <th>Description</th>
+        <th>InsertTime</th>
+        <th></th>
+
+    </tr>
+    <tr>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Name</td>
+            <td>@Model.NameChipset</td>
+            <td>@Model.Camera</td>
+            <td>@Model.Description</td>
+            <td>@Model.InsertTime</td>
+            <td >
+                <a class="button3 button5" asp-action="Update" asp-route-Id="@Model.Id">ویرایش</a>
+                <a class="button3 button4" asp-action="Delete" asp-route-Id="@Model.Id">حذف</a>
+            </td>
+
+        </tr>
+        
+    </tr>
+</table>
+
+<br/>
+
+
+<script>
+  let toggle = () => {
+     let element = document.getElementById("mytable");
+     element.classList.toggle("tbl-separate");
+  }
+</script>
